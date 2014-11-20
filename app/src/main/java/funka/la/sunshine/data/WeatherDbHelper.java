@@ -10,7 +10,7 @@ import static funka.la.sunshine.data.WeatherContract.WeatherEntry;
 public class WeatherDbHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "weather.db";
+    public static final String DATABASE_NAME = "weather.db";
 
     public WeatherDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -22,7 +22,7 @@ public class WeatherDbHelper extends SQLiteOpenHelper {
         // location setting, the city name, and the latitude and longitude
 
         // Location Table
-        final String SQL_CREATE_LOCATION_TABLE = "CREATE TABLE" + LocationEntry.TABLE_NAME + " ("+
+        final String SQL_CREATE_LOCATION_TABLE = "CREATE TABLE " + LocationEntry.TABLE_NAME + " ("+
                 LocationEntry._ID + " INTEGER PRIMARY KEY,"+
                 LocationEntry.COLUMN_LOCATION_SETTING + " TEXT UNIQUE NOT NULL,"+
                 LocationEntry.COLUMN_CITY_NAME + " TEXT NOT NULL,"+
@@ -31,7 +31,7 @@ public class WeatherDbHelper extends SQLiteOpenHelper {
                 " UNIQUE ("+ LocationEntry.COLUMN_LOCATION_SETTING + ") ON CONFLICT IGNORE);";
 
         // Weather Table
-        final String SQL_CREATE_WEATHER_TABLE = "CREATE TABLE" + WeatherEntry.TABLE_NAME + " ("+
+        final String SQL_CREATE_WEATHER_TABLE = "CREATE TABLE " + WeatherEntry.TABLE_NAME + " ("+
                 // Why AutoIncrement here, and not above?
                 // Unique keys will be auto-generated in either case.  But for weather
                 // forecasting, it's reasonable to assume the user will want information
