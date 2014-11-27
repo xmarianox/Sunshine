@@ -30,6 +30,9 @@
             android:name="funka.la.sunshine.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
+        <provider
+            android:authorities="funka.la.sunshine"
+            android:name=".data.WeatherProvider" />
     </application>
 
 </manifest>
